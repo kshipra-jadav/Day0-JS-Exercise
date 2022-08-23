@@ -31,3 +31,46 @@ Output -
   { name: 'Yogesh KHATRI', age: 51 }
 ]
  */
+
+// 3. Get entries where age is between 41-60
+const oldAgeMembers = members.filter(item => item.age > 41 && item.age < 60)
+console.log(oldAgeMembers)
+/*
+Output -
+[
+  { name: 'Swpril AHUJA', age: 45 },
+  { name: 'Yogesh KHATRI', age: 51 }
+]
+ */
+
+
+// 4. Get average age
+let totalAge = 0
+let totalMembers = 0 // because one member does not have age. If this were not the case, total members = members.length
+members.forEach(item => {
+	if(item.age) {
+		totalMembers++
+		totalAge += item.age
+	}
+})
+console.log(`Average Age :- ${totalAge / totalMembers}`)
+/*
+Output -
+Average Age :- 35.666666666666664
+ */
+
+
+// 5. Get Person with maximum age
+let personWithMaxAge
+let age = 0
+members.forEach(item => {
+	if(age < item.age) {
+		age = item.age
+		personWithMaxAge = item
+	}
+})
+console.log(personWithMaxAge)
+/*
+Output -
+{ name: 'Yogesh KHATRI', age: 51 }
+ */
